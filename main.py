@@ -1,10 +1,9 @@
 import PySimpleGUI as sg
-import pandas as pd
-import numpy as np
-import sys
 import xlwings as xw
+import sys
 
-def _get_matching_elements(array1: pd.array, array2: pd.array) -> list[tuple[int, int]]:
+
+def _get_matching_elements(array1, array2) -> list[tuple[int, int]]:
     matching_list = []
     for i in range(len(array1)):
         for j in range(len(array2)):
@@ -43,23 +42,6 @@ def _delete_from_parts_list(element_committed, data, excel_file_path):
     app.quit()
 
     return data
-    # sys_msng_wb = xw.Book(f'{sys_msng_path}')
-    # sys_msng_sht = sys_msng_wb.sheets['Sheet1']
-
-    # phys_msng_wb = xw.Book(f'{phys_msng_path}')
-    # phys_msng_sht = phys_msng_wb.sheets['Sheet1']
-    
-    # del sys_msng_data[element_committed[0]]
-
-    # print(sys_msng_sht.range(f'A2:D{len(sys_msng_data) + 1}').value)
-    # sys_msng_sht.tables[0].data_body_range.clear()
-    # sys_msng_sht.range(f'A2:D{len(sys_msng_data) + 1}').value = sys_msng_data
-    # print(sys_msng_sht.range(f'A2:D{len(sys_msng_data) + 1}').value)
-
-    # sys_msng_wb.save(sys_msng_path)
-    # sys_msng_wb.close()
-    # phys_msng_wb.close()
-    # app.quit()
 
 
 if __name__ == '__main__':
